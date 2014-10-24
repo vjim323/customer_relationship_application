@@ -1,5 +1,5 @@
 class Rolodex
-	
+	attr_reader :contacts
 
 	@@index = 0000
 

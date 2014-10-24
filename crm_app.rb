@@ -4,6 +4,8 @@ require_relative './contacts.rb'
 require_relative './rolodex.rb'
 
 class CRM
+	attr_reader :name
+
 	def initialize(name)
 		@name = name
 		@rolodex = Rolodex.new
@@ -56,6 +58,12 @@ class CRM
 
 		contact = Contacts.new(first_name, last_name, email, notes)
 		@rolodex.add_contact(contact)
+	end
+
+	def display_all_contact
+		@rolodex.contacts.each do |contact|
+			puts "#{contact.id}, #{contact.first_name} #{contact.last_name}, #{contact.email}, #{contact.notes}"
+		end	
 	end
 end
 
