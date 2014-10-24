@@ -39,7 +39,14 @@ class CRM
 	end
 
 	def add_contact
-		
+		print "First name: "
+			first_name = gets.chomp
+		print "Last name: "
+			last_name = gets.chomp
+		print "Email: "
+			email = gets.chomp
+		print "Notes: "
+			notes = gets.chomp
 	end
 end
 
