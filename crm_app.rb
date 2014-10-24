@@ -22,9 +22,13 @@ class CRM
 	end
 
 	def main_menu
-		print_main_menu
-		input = gets.chomp.to_i
-		interpret_option(input)
+		
+		while true
+			print_main_menu
+			input = gets.chomp.to_i
+			return if input == 7 
+			interpret_option(input)
+		end	
 	end
 
 	def interpret_option(input)
@@ -35,8 +39,6 @@ class CRM
 			when 4 then display_contact
 			when 5 then display_attribute
 			when 6 then delete
-			when 7 
-				return
 			else
 				return
 		end
