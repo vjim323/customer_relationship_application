@@ -1,10 +1,12 @@
 #CRM application assignment
 
 require_relative './contacts.rb'
+require_relative './rolodex.rb'
 
 class CRM
 	def initialize(name)
 		@name = name
+		@rolodex = Rolodex.new
 	end
 
 	def print_main_menu
@@ -51,6 +53,7 @@ class CRM
 			notes = gets.chomp
 
 		contact = Contacts.new(first_name, last_name, email, notes)
+		@rolodex.add_contact(contact)
 	end
 end
 
