@@ -1,5 +1,7 @@
 #CRM application assignment
 
+require_relative './contacts.rb'
+
 class CRM
 	def initialize(name)
 		@name = name
@@ -18,7 +20,7 @@ class CRM
 	end
 
 	def main_menu
-		
+		print_main_menu
 		input = gets.chomp.to_i
 		interpret_option(input)
 	end
@@ -47,9 +49,10 @@ class CRM
 			email = gets.chomp
 		print "Notes: "
 			notes = gets.chomp
+
+		contact = Contacts.new(first_name, last_name, email, notes)
 	end
 end
 
 crm = CRM.new("Vincent")
-crm.print_main_menu
 crm.main_menu
