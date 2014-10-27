@@ -24,11 +24,15 @@ class Rolodex
 				@searched_contact = true
 				# matching_contacts_counter += 1
 				@contact_of_interest = contact_to_be_searched
-				# puts "the contact is here"
 			else
 				@searched_contact = false
-				# puts "no such contact"
 			end
 		end
 	end
+
+	# def modify_contact(first_name)
+	# 	search_contact(first_name)
+	# 	unless @searched_contact == false
+			
+	# end
 end

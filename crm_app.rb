@@ -67,7 +67,7 @@ class CRM
 		@rolodex.display_contact(first_name)
 		if @rolodex.searched_contact == true
 			contact = @rolodex.contact_of_interest
-			puts "ID: #{contact.id}, Name: #{contact.first_name} #{contact.last_name}, Email: #{contact.email}, Notes: #{contact.notes}"
+			put_statement_for_contacts(contact)
 		else
 			puts "The contact does not exist!"
 		end
@@ -77,9 +77,26 @@ class CRM
 	def display_all_contact
 		puts "The following contacts were found in your crm application:"
 		@rolodex.contacts.each do |contact|
-		puts "ID: #{contact.id}, Name: #{contact.first_name} #{contact.last_name}, Email: #{contact.email}, Notes: #{contact.notes}"
+		put_statement_for_contacts(contact)
 		end
 	end
+
+	def modify_contact
+		puts "What is the first name of the contact that you wish to modify?"
+		first_name = gets.chomp.downcase.capitalize
+		@rolodex.search_contact(first_name)
+		if @rolodex.searched_contact == true
+			contact_to_modify = @rolodex.contact_of_interest
+			put_statement_for_contacts(contact_to_modify)
+		else
+			puts "The contact does not exist!"	
+		end
+	end
+
+	def put_statement_for_contacts(contact)
+		puts "ID: #{contact.id}, Name: #{contact.first_name} #{contact.last_name}, Email: #{contact.email}, Notes: #{contact.notes}"
+	end
+
 end
 
 crm = CRM.new("Vincent")
