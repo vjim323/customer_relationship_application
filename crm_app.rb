@@ -48,21 +48,29 @@ class CRM
 
 	def add_contact
 		print "First name: "
-			first_name = gets.chomp
+			first_name = gets.chomp.downcase.capitalize
 		print "Last name: "
-			last_name = gets.chomp
+			last_name = gets.chomp.downcase.capitalize
 		print "Email: "
-			email = gets.chomp
+			email = gets.chomp.downcase
 		print "Notes: "
-			notes = gets.chomp
+			notes = gets.chomp.downcase.capitalize
 
 		contact = Contacts.new(first_name, last_name, email, notes)
 		@rolodex.add_contact(contact)
 	end
 
+	def display_contact
+		puts "Please enter the first name of the contact you would like to display: "
+		first_name = gets.chomp
+		@rolodex.display_contact(first_name)
+		
+	end
+
 	def display_all_contact
+		puts "The following contacts were found in your crm application:"
 		@rolodex.contacts.each do |contact|
-			puts "#{contact.id}, #{contact.first_name} #{contact.last_name}, #{contact.email}, #{contact.notes}"
+			puts "ID: #{contact.id}, Name: #{contact.first_name} #{contact.last_name}, Email: #{contact.email}, Notes: #{contact.notes}"
 		end	
 	end
 end
