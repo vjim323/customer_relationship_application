@@ -62,7 +62,7 @@ class CRM
 
 	def display_contact
 		puts "Please enter the first name of the contact you would like to display: "
-		first_name = gets.chomp
+		first_name = gets.chomp.downcase.capitalize
 		@rolodex.display_contact(first_name)
 		
 	end
