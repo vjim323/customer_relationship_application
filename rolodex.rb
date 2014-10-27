@@ -57,4 +57,8 @@ class Rolodex
 			end
 		end
 	end
+
+	def delete(attribute_to_delete)
+		puts "#{attribute_to_delete}"
+	end
 end

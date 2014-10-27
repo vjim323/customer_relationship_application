@@ -119,11 +119,30 @@ class CRM
 		puts "[4] Notes"
 		attribute_to_display = gets.chomp.to_i
 		@rolodex.display_attribute(attribute_to_display)
+	end
 
+	def delete
+		puts "What is the first name of the user would you like to delete an attribute from?"
+		first_name = gets.chomp.downcase.capitalize
+		@rolodex.search_contact(first_name)
+		if @rolodex.searched_contact == true
+			contact_to_modify = @rolodex.contact_of_interest
+			puts "Which attribute would you like to delete?"
+			put_statement_for_contacts(contact_to_modify)
+			puts "[1] First Name"
+			puts "[2] Last Name"
+			puts "[3] Email"
+			puts "[4] Notes"
+			attribute_to_delete = gets.chomp.to_i
+			@rolodex.delete(attribute_to_delete)
+			puts "#{attribute_to_delete}"
+		else
+			puts "The contact does not exist!"
+		end
 	end
 
 	def put_statement_for_contacts(contact)
-		puts "ID: #{contact.id}, First Name: #{contact.first_name}, Last Name: #{contact.last_name}, Email: #{contact.email}, Notes: #{contact.notes}"
+		puts "ID: #{contact.id}, First Name: #{contact.first_name}, Last Name: #{contact.last_name}, Email: <#{contact.email}>, Notes: #{contact.notes}"
 	end
 
 end
