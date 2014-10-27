@@ -134,8 +134,13 @@ class CRM
 			puts "[3] Email"
 			puts "[4] Notes"
 			attribute_to_delete = gets.chomp.to_i
-			@rolodex.delete(attribute_to_delete)
-			puts "#{attribute_to_delete}"
+			puts "Are you sure you want to delete this attribute? (Yes/No):"
+			confirmation = gets.chomp.downcase.capitalize
+				if confirmation == "Yes"
+					@rolodex.delete(attribute_to_delete)
+				else
+					return
+				end
 		else
 			puts "The contact does not exist!"
 		end

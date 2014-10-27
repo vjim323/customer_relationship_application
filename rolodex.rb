@@ -59,6 +59,14 @@ class Rolodex
 	end
 
 	def delete(attribute_to_delete)
-		puts "#{attribute_to_delete}"
+		if attribute_to_delete == 1 
+			@contact_of_interest.first_name = ""
+		elsif attribute_to_delete == 2
+			@contact_of_interest.last_name = ""
+		elsif attribute_to_delete == 3
+			@contact_of_interest.email = ""
+		elsif attribute_to_delete == 4 
+			@contact_of_interest.notes = ""
+		end
 	end
 end
