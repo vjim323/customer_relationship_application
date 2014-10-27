@@ -30,9 +30,15 @@ class Rolodex
 		end
 	end
 
-	# def modify_contact(first_name)
-	# 	search_contact(first_name)
-	# 	unless @searched_contact == false
-			
-	# end
+	def modify_contact(attribute, modified_attribute)
+			if attribute == 1 
+				@contact_of_interest.first_name = modified_attribute
+			elsif attribute == 2
+				@contact_of_interest.last_name = modified_attribute
+			elsif attribute == 3
+				@contact_of_interest.email = modified_attribute
+			elsif attribute == 4 
+				@contact_of_interest.notes = modified_attribute
+			end
+	end
 end

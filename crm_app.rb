@@ -52,7 +52,7 @@ class CRM
 		print "Last name: "
 			last_name = gets.chomp.downcase.capitalize
 		print "Email: "
-			email = gets.chomp.downcase
+			email = gets.chomp.downcase.capitalize
 		print "Notes: "
 			notes = gets.chomp.downcase.capitalize
 
@@ -87,14 +87,24 @@ class CRM
 		@rolodex.search_contact(first_name)
 		if @rolodex.searched_contact == true
 			contact_to_modify = @rolodex.contact_of_interest
+			puts "Which attribute would you like to modify?"
 			put_statement_for_contacts(contact_to_modify)
+			puts "[1] First Name"
+			puts "[2] Last Name"
+			puts "[3] Email"
+			puts "[4] Notes"
+			attribute_to_modify = gets.chomp.to_i
+			puts "What would you like to modify the attribute to?"
+			modified_attribute = gets.chomp.downcase.capitalize
+			@rolodex.modify_contact(attribute_to_modify, modified_attribute)
+			puts "Success! The contact's information has been updated."
 		else
 			puts "The contact does not exist!"	
 		end
 	end
 
 	def put_statement_for_contacts(contact)
-		puts "ID: #{contact.id}, Name: #{contact.first_name} #{contact.last_name}, Email: #{contact.email}, Notes: #{contact.notes}"
+		puts "ID: #{contact.id}, First Name: #{contact.first_name}, Last Name: #{contact.last_name}, Email: #{contact.email}, Notes: #{contact.notes}"
 	end
 
 end
