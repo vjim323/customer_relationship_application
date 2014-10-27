@@ -58,20 +58,27 @@ class CRM
 
 		contact = Contacts.new(first_name, last_name, email, notes)
 		@rolodex.add_contact(contact)
+		puts "The contact has been added."
 	end
 
 	def display_contact
 		puts "Please enter the first name of the contact you would like to display: "
 		first_name = gets.chomp.downcase.capitalize
 		@rolodex.display_contact(first_name)
+		if @rolodex.searched_contact == true
+			contact = @rolodex.contact_of_interest
+			puts "ID: #{contact.id}, Name: #{contact.first_name} #{contact.last_name}, Email: #{contact.email}, Notes: #{contact.notes}"
+		else
+			puts "The contact does not exist!"
+		end
 		
 	end
 
 	def display_all_contact
 		puts "The following contacts were found in your crm application:"
 		@rolodex.contacts.each do |contact|
-			puts "ID: #{contact.id}, Name: #{contact.first_name} #{contact.last_name}, Email: #{contact.email}, Notes: #{contact.notes}"
-		end	
+		puts "ID: #{contact.id}, Name: #{contact.first_name} #{contact.last_name}, Email: #{contact.email}, Notes: #{contact.notes}"
+		end
 	end
 end
 
