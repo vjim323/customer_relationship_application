@@ -111,7 +111,14 @@ class CRM
 	end
 
 	def display_attribute
-		
+		puts "What attribute would you like to display?"
+		puts "[1] First Name"
+		puts "[2] Last Name"
+		puts "[3] Email"
+		puts "[4] Notes"
+		attribute_to_display = gets.chomp.to_i
+		@rolodex.display_attribute(attribute_to_display)
+
 	end
 
 	def put_statement_for_contacts(contact)

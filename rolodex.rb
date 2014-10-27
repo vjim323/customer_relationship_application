@@ -42,7 +42,7 @@ class Rolodex
 			end
 	end
 
-	def display_attribute
-		
+	def display_attribute(attribute_to_display)
+		puts "#{attribute_to_display}"
 	end
 end
