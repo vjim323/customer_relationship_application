@@ -43,6 +43,18 @@ class Rolodex
 	end
 
 	def display_attribute(attribute_to_display)
-		puts "#{attribute_to_display}"
+		@contacts.each do |contact|
+			if attribute_to_display == 0
+				puts "#{contact.id}"
+			elsif attribute_to_display == 1
+				puts "#{contact.first_name}"
+			elsif attribute_to_display == 2
+				puts "#{contact.last_name}"
+			elsif attribute_to_display == 3
+				puts "#{contact.email}"
+			elsif attribute_to_display == 4
+				puts "#{contact.notes}"
+			end
+		end
 	end
 end

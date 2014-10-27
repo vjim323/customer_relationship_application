@@ -112,6 +112,7 @@ class CRM
 
 	def display_attribute
 		puts "What attribute would you like to display?"
+		puts "[0] ID"
 		puts "[1] First Name"
 		puts "[2] Last Name"
 		puts "[3] Email"
