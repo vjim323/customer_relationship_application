@@ -7,12 +7,12 @@ class CRM
 	attr_reader :name
 
 	def initialize(name)
+		puts "Welcome to #{@name}'s CRM application!"
 		@name = name
 		@rolodex = Rolodex.new
 	end
 
 	def print_main_menu
-		puts "Welcome to #{@name}'s CRM application!"
 		puts "[1] Add a contact"
 		puts "[2] Modify a contact"
 		puts "[3] Display all contacts"
@@ -94,13 +94,24 @@ class CRM
 			puts "[3] Email"
 			puts "[4] Notes"
 			attribute_to_modify = gets.chomp.to_i
-			puts "What would you like to modify the attribute to?"
-			modified_attribute = gets.chomp.downcase.capitalize
-			@rolodex.modify_contact(attribute_to_modify, modified_attribute)
-			puts "Success! The contact's information has been updated."
+			puts "Are you sure you want to change this attribute? (Yes/No):"
+			confirmation = gets.chomp.downcase.capitalize
+				if confirmation == "Yes"
+					puts "What would you like to modify the attribute to?"
+					modified_attribute = gets.chomp.downcase.capitalize
+					@rolodex.modify_contact(attribute_to_modify, modified_attribute)
+					puts "Success! The contact's information has been updated."
+				elsif confirmation == "No"
+					return
+				end
+			
 		else
 			puts "The contact does not exist!"	
 		end
+	end
+
+	def display_attribute
+		
 	end
 
 	def put_statement_for_contacts(contact)

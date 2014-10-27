@@ -41,4 +41,8 @@ class Rolodex
 				@contact_of_interest.notes = modified_attribute
 			end
 	end
+
+	def display_attribute
+		
+	end
 end
